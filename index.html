@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ServicePro - Home & Lifestyle Service Admin Portal</title>
+  
+  <!-- ServicePro Tab Favicon & Brand Icon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="alternate icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234F46E5'/%3E%3Cstop offset='100%25' stop-color='%231E56A0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='18' fill='url(%23g)'/%3E%3Cpath d='M42 46V18a4 4 0 00-4-4H26a4 4 0 00-4 4v28m20 0h4m-4 0h-8m-12 0h-4m4 0h8M28 22h2m-2 8h2m8-8h2m-2 8h2m-6 16v-8a2 2 0 012-2h2a2 2 0 012 2v8m-6 0h6' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="assets/images/favicon.svg">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              indigo: '#4F46E5',
+              indigoDark: '#4338CA',
+              royal: '#1E56A0',
+              orange: '#FF7A00',
+              orangeHover: '#E66E00',
+              canvas: '#F8FAFC',
+              border: '#E2E8F0',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-brand-canvas text-slate-800 antialiased min-h-screen">
+
+  <!-- =========================================================================
+       SCREEN 1: AUTH LOGIN SCREEN (Shows when user is NOT logged in)
+       ========================================================================= -->
+  <div id="auth-login-screen" class="min-h-screen bg-slate-50/80 flex items-center justify-center p-4 sm:p-6">
+    
+    <div class="max-w-4xl w-full saas-card overflow-hidden grid grid-cols-1 md:grid-cols-12 border border-slate-200/90 shadow-2xl">
+      
+      <!-- Left Branding Side (5 Columns) -->
+      <div class="md:col-span-5 bg-gradient-to-br from-brand-indigo via-indigo-700 to-brand-royal p-8 sm:p-10 text-white flex flex-col justify-between relative overflow-hidden">
+        <!-- Ambient decorative shapes -->
+        <div class="absolute -top-12 -left-12 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="absolute -bottom-12 -right-12 w-48 h-48 bg-blue-500/20 rounded-full blur-2xl pointer-events-none"></div>
+
+        <div class="relative z-10">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center text-white border border-white/20 shadow-inner">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+            <div>
+              <h2 class="font-extrabold text-xl tracking-tight leading-none">ServicePro</h2>
+              <span class="text-[10px] font-bold text-indigo-200 tracking-wider uppercase">ADMIN PORTAL</span>
+            </div>
+          </div>
+
+          <div class="mt-8 space-y-4">
+            <h3 class="text-2xl font-extrabold leading-snug">Empowering Home & Lifestyle Dispatchers</h3>
+            <p class="text-xs text-indigo-100 leading-relaxed">
+              Manage on-demand technician dispatches, monitor service quality, publish dynamic catalog offerings, and keep customers informed in real-time.
+            </p>
+
+            <div class="pt-4 space-y-3">
+              <div class="flex items-center gap-2.5 text-xs text-indigo-100 font-medium">
+                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-white text-[11px] font-bold">✓</span>
+                <span>Multi-category service catalog control</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-xs text-indigo-100 font-medium">
+                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-white text-[11px] font-bold">✓</span>
+                <span>Live customer push notification simulation</span>
+              </div>
+              <div class="flex items-center gap-2.5 text-xs text-indigo-100 font-medium">
+                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-white text-[11px] font-bold">✓</span>
+                <span>Instant booking confirm & cancel workflows</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-8 border-t border-white/10 text-[11px] text-indigo-200 relative z-10 flex items-center justify-between">
+          <span>ServicePro Cloud Operations</span>
+          <span>• 256-bit SSL</span>
+        </div>
+      </div>
+
+      <!-- Right Sign In Form Side (7 Columns) -->
+      <div class="md:col-span-7 p-8 sm:p-10 bg-white flex flex-col justify-center">
+        
+        <div class="mb-6">
+          <span class="text-[11px] font-bold tracking-wider text-brand-indigo uppercase">Welcome Back</span>
+          <h3 class="text-2xl font-extrabold text-slate-900 mt-1">Sign in to Admin Portal</h3>
+          <p class="text-xs text-slate-500 mt-1">Enter your administrative credentials to access operations.</p>
+        </div>
+
+        <!-- Error message container -->
+        <div id="login-error-msg" class="hidden mb-4 p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-xs font-semibold text-rose-700"></div>
+
+        <form class="space-y-4" onsubmit="return false;">
+          <!-- Email -->
+          <div>
+            <label for="login-email" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Admin Email</label>
+            <input type="email" 
+                   id="login-email" 
+                   required 
+                   placeholder="admin@servicepro.com"
+                   class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-indigo/20 focus:border-brand-indigo transition shadow-2xs">
+          </div>
+
+          <!-- Password with toggle -->
+          <div>
+            <label for="login-password" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Password</label>
+            <div class="relative">
+              <input type="password" 
+                     id="login-password" 
+                     required 
+                     placeholder="Enter your password"
+                     class="w-full px-4 py-2.5 pr-10 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-indigo/20 focus:border-brand-indigo transition shadow-2xs">
+              <button type="button" 
+                      id="toggle-password-btn" 
+                      class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 transition cursor-pointer" 
+                      title="Toggle password visibility">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Remember Me -->
+          <div class="flex items-center pt-1">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="login-remember-me" checked class="w-4 h-4 rounded text-brand-indigo focus:ring-brand-indigo/30 border-slate-300">
+              <span class="text-xs text-slate-600 font-semibold">Keep me signed in</span>
+            </label>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="pt-3">
+            <button type="button" 
+                    id="login-submit-btn" 
+                    class="btn-indigo w-full py-3.5 rounded-xl text-sm font-bold flex items-center justify-center transition active:scale-95 cursor-pointer">
+              Sign In to Admin Portal
+            </button>
+          </div>
+        </form>
+
+        <div class="mt-6 pt-6 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400 font-medium">
+          <span>Single Sign-On (SSO) Ready</span>
+          <span class="text-emerald-600 font-semibold flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> OAuth 2.0
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       SCREEN 2: COMPLETE ADMIN DASHBOARD (Shows when user IS logged in)
+       ========================================================================= -->
+  <div id="app-dashboard-wrapper" class="hidden min-h-screen flex flex-col md:flex-row">
+
+    <!-- Mobile Drawer Backdrop Overlay -->
+    <div id="sidebar-backdrop" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 hidden md:hidden transition-opacity"></div>
+
+    <!-- Fixed Left Sidebar (270px) -->
+    <aside id="sidebar-drawer" 
+           class="fixed top-0 bottom-0 left-0 z-50 w-[270px] bg-white border-r border-slate-200/90 flex flex-col justify-between transition-transform duration-300 ease-in-out -translate-x-full md:translate-x-0 select-none shadow-[2px_0_12px_rgba(0,0,0,0.02)]">
+      
+      <!-- Top Brand Logo & Nav Menu -->
+      <div class="p-5 flex flex-col h-full overflow-y-auto custom-scroll justify-between">
+        
+        <div>
+          <!-- Brand Logo Header -->
+          <div class="flex items-center justify-between pb-5 mb-5 border-b border-slate-100">
+            <a href="#dashboard" data-nav-target="dashboard" class="flex items-center gap-3 group">
+              <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-brand-indigo to-brand-royal flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
+              <div>
+                <div class="flex items-center gap-1.5">
+                  <span class="font-extrabold text-lg tracking-tight text-slate-900 leading-none">Service<span class="text-brand-indigo">Pro</span></span>
+                </div>
+                <span class="inline-block mt-1 text-[10px] font-extrabold tracking-wider px-2 py-0.5 rounded-md bg-indigo-50 text-brand-indigo border border-indigo-100">ADMIN PORTAL</span>
+              </div>
+            </a>
+
+            <!-- Mobile Drawer Close Button -->
+            <button class="md:hidden text-slate-400 hover:text-slate-700 p-1 cursor-pointer" onclick="document.getElementById('sidebar-drawer').classList.add('-translate-x-full'); document.getElementById('sidebar-backdrop').classList.add('hidden');">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+          </div>
+
+          <!-- Navigation Links (Core Management) -->
+          <nav class="space-y-1.5">
+            <div class="px-2 pb-2 text-[11px] font-bold uppercase tracking-wider text-slate-400">Core Management</div>
+            
+            <!-- 1. Dashboard Overview -->
+            <a href="#dashboard" data-nav-target="dashboard" class="nav-link active">
+              <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+              </svg>
+              <span class="truncate">Dashboard Overview</span>
+            </a>
+
+            <!-- 2. Manage Bookings -->
+            <a href="#bookings" data-nav-target="bookings" class="nav-link justify-between">
+              <div class="flex items-center gap-3 min-w-0">
+                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                </svg>
+                <span class="truncate">Manage Bookings</span>
+              </div>
+              <span id="sidebar-pending-badge" class="px-2 py-0.5 text-xs font-bold rounded-full bg-amber-500 text-white shadow-sm flex-shrink-0">0</span>
+            </a>
+
+            <!-- 3. Category Services -->
+            <a href="#services" data-nav-target="services" class="nav-link">
+              <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+              </svg>
+              <span class="truncate">Category Services</span>
+            </a>
+
+            <!-- 4. Post New Service Action -->
+            <button type="button" data-action="open-post-modal" class="w-full text-left nav-link text-brand-orange hover:bg-orange-50 font-bold cursor-pointer">
+              <svg class="w-5 h-5 flex-shrink-0 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
+              </svg>
+              <span class="truncate">Post New Service</span>
+            </button>
+          </nav>
+        </div>
+
+        <!-- Sidebar Bottom: User Profile & Prominent Sign Out Button -->
+        <div class="pt-4 border-t border-slate-100 space-y-3">
+          
+          <!-- User Profile Card -->
+          <div class="flex items-center gap-3 p-2.5 rounded-2xl bg-slate-50/90 border border-slate-200/70 shadow-2xs">
+            <div class="relative flex-shrink-0">
+              <img id="sidebar-user-avatar" 
+                   src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" 
+                   alt="Admin Avatar" 
+                   class="w-9 h-9 rounded-full object-cover border-2 border-white shadow-xs">
+              <span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white"></span>
+            </div>
+            <div class="min-w-0 flex-1">
+              <p id="sidebar-user-name" class="text-xs font-extrabold text-slate-900 truncate">Administrator</p>
+              <p id="sidebar-user-role" class="text-[10px] font-medium text-slate-400 truncate">Admin</p>
+            </div>
+          </div>
+
+          <!-- Prominent Sign Out Button -->
+          <button id="sidebar-signout-btn" 
+                  type="button" 
+                  class="btn-sidebar-signout w-full justify-center cursor-pointer shadow-xs">
+            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+            <span>Sign Out</span>
+          </button>
+          
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- Main Content Canvas & Header Area (Offset by 270px on Desktop) -->
+    <div class="flex-1 md:ml-[270px] flex flex-col min-h-screen">
+      
+      <!-- Top Sticky Header Bar -->
+      <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200/80 px-4 sm:px-8 py-4 flex items-center justify-between gap-4 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+        
+        <!-- Left: Mobile Menu Toggle & Title -->
+        <div class="flex items-center gap-3.5 min-w-0">
+          <button id="mobile-menu-btn" class="md:hidden p-2 rounded-xl text-slate-600 hover:bg-slate-100 transition focus:outline-none cursor-pointer">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+          </button>
+          
+          <div class="min-w-0">
+            <div class="flex items-center gap-2">
+              <h1 id="current-view-title" class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight leading-tight truncate">
+                Dashboard Overview
+              </h1>
+              <span class="hidden lg:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-50 text-emerald-700 border border-emerald-200/80">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                SYSTEM OPERATIONAL
+              </span>
+            </div>
+            <p id="current-view-subtitle" class="text-xs text-slate-500 hidden sm:block truncate mt-0.5 font-medium">
+              Real-time dispatch metrics, pending queue & platform KPIs
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: Action Buttons, Live Pending & Inline Notification Popover -->
+        <div class="flex items-center gap-3">
+          
+          <!-- Live Date Badge -->
+          <div class="hidden xl:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100/70 border border-slate-200/70 text-xs font-semibold text-slate-600">
+            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+            <span>Nov 18, 2026</span>
+          </div>
+
+          <!-- Live Pending Badge indicator -->
+          <div id="header-pending-badge" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200 shadow-2xs">
+            <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+            <span>0 Pending</span>
+          </div>
+
+          <!-- Accent CTA: Post New Service Button -->
+          <button type="button" data-action="open-post-modal" 
+                  class="btn-primary-orange inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold active:scale-95 transition cursor-pointer">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
+            </svg>
+            <span class="hidden sm:inline">Post New Service</span>
+            <span class="sm:hidden">Post</span>
+          </button>
+
+          <!-- INLINE NOTIFICATION BELL WITH FLOATING DROPDOWN POPOVER -->
+          <div class="relative">
+            
+            <!-- Bell Button -->
+            <button id="header-notification-bell-btn" 
+                    type="button" 
+                    class="p-2.5 rounded-xl border border-slate-200/90 text-slate-600 hover:text-brand-indigo hover:bg-slate-50 transition relative cursor-pointer shadow-2xs" 
+                    title="View Notifications">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+              </svg>
+              <!-- Unread Counter Badge on Bell -->
+              <span id="header-notif-bell-badge" class="absolute -top-1 -right-1 px-1.5 py-0.2 rounded-full bg-rose-500 text-white text-[10px] font-extrabold shadow-sm hidden">0</span>
+            </button>
+
+            <!-- Compact Inline Floating Notification Popover Dropdown -->
+            <div id="header-notification-dropdown" 
+                 class="hidden absolute right-0 top-full mt-2 w-80 sm:w-96 bg-white rounded-2xl border border-slate-200/90 shadow-2xl z-50 overflow-hidden popover-animate select-none">
+              
+              <!-- Popover Header -->
+              <div class="px-4 py-3 bg-slate-50/90 border-b border-slate-100 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Notifications</h4>
+                  <span id="notif-dropdown-unread-badge" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-200">
+                    0 Unread
+                  </span>
+                </div>
+                <button id="clear-notif-dropdown-btn" 
+                        type="button" 
+                        class="text-[11px] font-semibold text-brand-indigo hover:text-indigo-800 transition cursor-pointer hover:underline">
+                  Mark all as read
+                </button>
+              </div>
+
+              <!-- Popover Scrollable Feed List -->
+              <div id="notif-dropdown-list" class="max-h-80 overflow-y-auto custom-scroll divide-y divide-slate-100">
+                <!-- Dynamically populated by renderNotificationDropdown() -->
+              </div>
+
+              <!-- Popover Footer -->
+              <div class="px-4 py-2.5 bg-slate-50/70 border-t border-slate-100 text-center text-[10px] text-slate-400 font-semibold">
+                Two-Way Real-time Alerts • ServicePro Admin
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </header>
+
+      <!-- Main View Canvas Content -->
+      <main class="flex-1 p-4 sm:p-8 max-w-7xl w-full mx-auto space-y-8">
+
+        <!-- =====================================================================
+             VIEW 1: DASHBOARD OVERVIEW
+             ===================================================================== -->
+        <section id="view-dashboard" class="space-y-8">
+          
+          <!-- 4 KPI Cards in a responsive row -->
+          <div id="dashboard-kpis-container">
+            <!-- Rendered dynamically by renderKPICards() -->
+          </div>
+
+          <!-- Analysis & Trends Charts (Revenue Spline Curve & Fulfillment Donut) -->
+          <div id="dashboard-analytics-charts">
+            <!-- Rendered dynamically by renderAnalyticsCharts() -->
+          </div>
+
+          <!-- Category Distribution Summary Bar -->
+          <div id="dashboard-category-distribution">
+            <!-- Rendered dynamically by renderCategoryDistribution() -->
+          </div>
+
+          <!-- Recent Pending Requests Table Card -->
+          <div class="saas-card overflow-hidden">
+            <div class="p-6 border-b border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="text-base font-extrabold text-slate-900 tracking-tight">Recent Pending Requests</h3>
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                    Instant Dispatch
+                  </span>
+                </div>
+                <p class="text-xs text-slate-500 mt-1">Review pending customer bookings and confirm or cancel with live mobile push dispatch</p>
+              </div>
+              
+              <a href="#bookings" data-nav-target="bookings" 
+                 class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-indigo hover:text-brand-indigoDark transition">
+                <span>View All Bookings Table</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+              </a>
+            </div>
+
+            <!-- Pending Table -->
+            <div class="table-container">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="bg-slate-50/80 border-b border-slate-200 text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                    <th class="py-3.5 px-4">Booking ID</th>
+                    <th class="py-3.5 px-4">Customer & Address</th>
+                    <th class="py-3.5 px-4">Service & Category</th>
+                    <th class="py-3.5 px-4">Date & Slot</th>
+                    <th class="py-3.5 px-4">Price</th>
+                    <th class="py-3.5 px-4">Status</th>
+                    <th class="py-3.5 px-4 text-right">Quick Dispatch</th>
+                  </tr>
+                </thead>
+                <tbody id="dashboard-pending-tbody">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Empty state when all pending handled -->
+            <div id="dashboard-pending-empty" class="hidden p-12 text-center">
+              <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-3 shadow-inner">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <h4 class="text-sm font-bold text-slate-900">All Caught Up!</h4>
+              <p class="text-xs text-slate-500 mt-1 max-w-sm mx-auto">There are currently no pending customer orders waiting for dispatch confirmation.</p>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- =====================================================================
+             VIEW 2: MANAGE BOOKINGS
+             ===================================================================== -->
+        <section id="view-bookings" class="hidden space-y-6">
+          
+          <!-- Controls Bar: Filter Pills + Live Search -->
+          <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+            
+            <!-- Status Filter Pills -->
+            <div id="booking-filter-pills" class="flex flex-wrap items-center gap-2">
+              <!-- Populated dynamically -->
+            </div>
+
+            <!-- Live Search Input -->
+            <div class="relative w-full lg:w-80">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+              </div>
+              <input type="text" 
+                     id="booking-search-input" 
+                     placeholder="Search ID, customer, service, street..." 
+                     class="w-full pl-10 pr-4 py-2.5 rounded-xl text-xs bg-white border border-slate-200 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-indigo/20 focus:border-brand-indigo transition shadow-2xs font-medium">
+            </div>
+
+          </div>
+
+          <!-- Full Bookings Table Card -->
+          <div class="saas-card overflow-hidden">
+            <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">Service Booking Records</span>
+                <span id="bookings-results-count" class="text-xs text-slate-400 font-semibold"></span>
+              </div>
+              <span class="inline-flex items-center gap-1.5 text-xs text-emerald-600 font-semibold bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                Live Cloud API
+              </span>
+            </div>
+
+            <div class="table-container">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="bg-slate-50/80 border-b border-slate-200 text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                    <th class="py-3.5 px-4">Booking ID</th>
+                    <th class="py-3.5 px-4">Customer & Address</th>
+                    <th class="py-3.5 px-4">Service & Category</th>
+                    <th class="py-3.5 px-4">Date & Slot</th>
+                    <th class="py-3.5 px-4">Price</th>
+                    <th class="py-3.5 px-4">Status</th>
+                    <th class="py-3.5 px-4 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="bookings-table-tbody">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Empty search/filter state -->
+            <div id="bookings-empty-state" class="hidden p-14 text-center">
+              <div class="w-12 h-12 rounded-2xl bg-slate-100 text-slate-400 flex items-center justify-center mx-auto mb-3 shadow-inner">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+              </div>
+              <h4 class="text-sm font-bold text-slate-800">No Matching Bookings Found</h4>
+              <p class="text-xs text-slate-500 mt-1">Try resetting your search query or switching to another status filter pill.</p>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- =====================================================================
+             VIEW 3: CATEGORY SERVICES
+             ===================================================================== -->
+        <section id="view-services" class="hidden space-y-6">
+          
+          <!-- Controls: Category Filter Pills & Post Action -->
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div id="service-category-pills" class="flex flex-wrap items-center gap-2">
+              <!-- Populated dynamically -->
+            </div>
+
+            <div class="flex items-center gap-3">
+              <span id="services-count-label" class="text-xs font-bold text-slate-500">0 Services in Catalog</span>
+            </div>
+          </div>
+
+          <!-- 3-Column Responsive Services Grid -->
+          <div id="services-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Rendered dynamically by renderServiceCard() -->
+          </div>
+
+          <!-- Empty state when a category has 0 services -->
+          <div id="services-empty-state" class="hidden p-14 text-center saas-card">
+            <div class="w-12 h-12 rounded-2xl bg-slate-100 text-slate-400 flex items-center justify-center mx-auto mb-3 shadow-inner">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+            </div>
+            <h4 class="text-sm font-bold text-slate-800">No Services in this Category</h4>
+            <p class="text-xs text-slate-500 mt-1 mb-4">You can post the first service offering for this vertical right away.</p>
+            <button type="button" data-action="open-post-modal" class="btn-primary-orange px-4 py-2 rounded-xl text-xs font-bold inline-flex items-center gap-1.5 cursor-pointer">
+              Post Service Now
+            </button>
+          </div>
+
+        </section>
+
+      </main>
+    </div>
+
+  </div>
+
+  <!-- =========================================================================
+       POST NEW SERVICE MODAL
+       ========================================================================= -->
+  <div id="post-service-modal" 
+       class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6 py-8 sm:py-12 overflow-y-auto modal-backdrop-animate">
+    
+    <div class="bg-white rounded-3xl border border-slate-200/90 shadow-2xl max-w-xl w-full my-auto overflow-hidden modal-content-animate flex flex-col max-h-[90vh]">
+      
+      <!-- Modal Header -->
+      <div class="px-7 py-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/70">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-orange-100 text-brand-orange flex items-center justify-center font-bold shadow-xs">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" /></svg>
+          </div>
+          <div>
+            <h3 id="service-modal-header-title" class="text-base font-extrabold text-slate-900 leading-tight">Post New Service</h3>
+            <p id="service-modal-header-subtitle" class="text-[11px] text-slate-500 font-medium">Publish a new service to consumer mobile app catalog</p>
+          </div>
+        </div>
+
+        <button data-action="close-post-modal" class="text-slate-400 hover:text-slate-600 p-2 rounded-xl hover:bg-slate-100 transition cursor-pointer">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+      </div>
+
+      <!-- Modal Body (Scrollable) -->
+      <div class="p-7 overflow-y-auto custom-scroll flex-1">
+        <form id="post-service-form" class="space-y-5">
+          <input type="hidden" id="modal-service-id" value="">
+          
+          <!-- Category & Price Row -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="modal-service-category" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                Service Category <span class="text-red-500">*</span>
+              </label>
+              <select id="modal-service-category" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-brand-indigo/20 focus:border-brand-indigo bg-white shadow-2xs">
+                <!-- Dynamically populated -->
+              </select>
+            </div>
+
+            <div>
+              <label for="modal-service-price" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                Price ($ USD) <span class="text-red-500">*</span>
+              </label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center font-bold text-slate-400 text-xs">$</span>
+                <input type="number" id="modal-service-price" step="0.50" min="10" max="5000" placeholder="85.00" required class="w-full pl-8 pr-3 py-2.5 rounded-xl border border-slate-200 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-brand-indigo/20 focus:border-brand-indigo shadow-2xs">
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Title -->
+          <div>
+            <label for="modal-service-title" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+              Service Title <span class="text-red-500">*</span>
+            </label>
+            <input type="text" id="modal-service-title" placeholder="e.g. Master Bathroom Leak Detection & Fixture Fit" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-brand-indigo/20 focus:border-brand-indigo shadow-2xs">
+          </div>
+
+          <!-- Description -->
+          <div>
+            <label for="modal-service-desc" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+              Detailed Description
+            </label>
+            <textarea id="modal-service-desc" rows="3" placeholder="Provide customer details on what is covered, pro tools used, and guarantee..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-brand-indigo/20 focus:border-brand-indigo resize-none shadow-2xs"></textarea>
+          </div>
+
+          <!-- Duration (Minutes) & Featured Toggle -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 items-center">
+            <div>
+              <label for="modal-service-duration" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                Duration (Minutes)
+              </label>
+              <input type="number" id="modal-service-duration" value="60" min="15" step="15" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-brand-indigo/20 focus:border-brand-indigo shadow-2xs">
+            </div>
+
+            <div class="pt-3 sm:pt-4">
+              <label class="flex items-center gap-2.5 cursor-pointer">
+                <input type="checkbox" id="modal-service-featured" class="w-4 h-4 rounded text-amber-500 focus:ring-amber-400 border-slate-300">
+                <span class="text-xs font-bold text-slate-700">Feature on App Home Banner</span>
+              </label>
+              <p class="text-[11px] text-slate-400 ml-6 mt-0.5">Pins with golden star tag on client home page</p>
+            </div>
+          </div>
+
+          <!-- Dual-Source Cover Image Section (Storage Upload & Web URL) -->
+          <div class="pt-5 mt-2 border-t border-slate-100">
+            <div class="flex items-center justify-between mb-3">
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">
+                Cover Image <span class="text-red-500">*</span>
+              </label>
+
+              <!-- Image Source Toggle Tabs -->
+              <div class="flex items-center p-1 bg-slate-100 rounded-xl border border-slate-200/80 text-[11px] font-semibold">
+                <button type="button" 
+                        id="tab-btn-upload-file" 
+                        class="px-2.5 py-1 rounded-lg transition-all text-brand-indigo font-bold bg-white shadow-2xs cursor-pointer flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg>
+                  <span>Upload File</span>
+                </button>
+                <button type="button" 
+                        id="tab-btn-image-url" 
+                        class="px-2.5 py-1 rounded-lg transition-all text-slate-500 hover:text-slate-800 cursor-pointer flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                  <span>Image URL</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Pane 1: Upload from Storage / Device -->
+            <div id="image-pane-upload" class="space-y-3">
+              <!-- Hidden File Input -->
+              <input type="file" id="service-file-input" accept="image/*" class="hidden">
+
+              <!-- Dropzone Box -->
+              <div id="service-upload-dropzone" 
+                   class="border-2 border-dashed border-slate-300 hover:border-brand-indigo bg-slate-50/60 hover:bg-indigo-50/20 rounded-2xl p-6 text-center cursor-pointer transition-all duration-200 group">
+                <div class="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-100 text-brand-indigo flex items-center justify-center mx-auto mb-2.5 group-hover:scale-110 transition-transform shadow-2xs">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <p class="text-xs font-bold text-slate-800">
+                  <span class="text-brand-indigo hover:underline">Click to browse storage</span> or drag & drop image
+                </p>
+                <p class="text-[11px] text-slate-400 mt-1 font-medium">
+                  Supports JPG, PNG, WEBP (Saved locally in base64 format)
+                </p>
+              </div>
+
+              <!-- Uploaded Image Preview & Details Card (Hidden until file selected) -->
+              <div id="service-uploaded-preview-card" class="hidden rounded-2xl border border-slate-200 bg-white p-3 shadow-sm">
+                <div class="flex items-center gap-3">
+                  <img id="service-uploaded-preview-img" 
+                       src="" 
+                       alt="Uploaded preview" 
+                       class="w-16 h-16 rounded-xl object-cover border border-slate-200 shadow-2xs flex-shrink-0">
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2">
+                      <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                      <p id="service-uploaded-file-name" class="text-xs font-bold text-slate-900 truncate">image.jpg</p>
+                    </div>
+                    <p id="service-uploaded-file-size" class="text-[11px] text-slate-400 mt-0.5 font-medium">120 KB</p>
+                    <div class="flex items-center gap-3 mt-1.5">
+                      <button type="button" id="btn-change-uploaded-file" class="text-xs font-bold text-brand-indigo hover:underline cursor-pointer">
+                        Change File
+                      </button>
+                      <span class="text-slate-300">•</span>
+                      <button type="button" id="btn-remove-uploaded-file" class="text-xs font-semibold text-rose-600 hover:underline cursor-pointer">
+                        Remove
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pane 2: Enter Web URL (Hidden by default, activated via tab) -->
+            <div id="image-pane-url" class="hidden space-y-3">
+              <div class="flex gap-3 items-center">
+                <div class="relative flex-1">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                  </span>
+                  <input type="url" 
+                         id="service-image-url" 
+                         placeholder="Enter direct image URL (https://...)" 
+                         class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-brand-indigo/20 focus:border-brand-indigo font-mono-code shadow-2xs">
+                </div>
+                <div class="w-14 h-12 rounded-xl bg-slate-100 border border-slate-200 overflow-hidden flex-shrink-0 shadow-xs flex items-center justify-center text-slate-400">
+                  <img id="service-image-preview" src="" alt="Preview" class="w-full h-full object-cover hidden">
+                  <svg id="service-image-preview-placeholder" class="w-5 h-5 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-6 py-4 border-t border-slate-100 bg-slate-50/80 flex items-center justify-end gap-3">
+        <button type="button" data-action="close-post-modal" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-200/60 transition cursor-pointer">
+          Cancel
+        </button>
+        <button type="submit" form="post-service-form" id="service-modal-submit-btn" 
+                class="btn-primary-orange px-5 py-2.5 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+          <span id="service-modal-submit-text">Publish to App Catalog</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       DELETE CONFIRMATION DIALOG MODAL
+       ========================================================================= -->
+  <div id="delete-service-modal" 
+       class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-md hidden items-center justify-center p-4 overflow-y-auto modal-backdrop-animate select-none">
+    <div class="bg-white rounded-3xl border border-slate-200/90 shadow-2xl max-w-md w-full p-6 text-center modal-content-animate relative overflow-hidden">
+      <!-- Glow background accent -->
+      <div class="w-16 h-16 rounded-3xl bg-rose-50 border border-rose-100 text-rose-600 flex items-center justify-center mx-auto mb-4 shadow-sm">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+        </svg>
+      </div>
+
+      <h3 class="text-lg font-extrabold text-slate-900 tracking-tight">Delete Service?</h3>
+      <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+        Are you sure you want to permanently remove <span id="delete-service-title" class="font-bold text-slate-800">this service</span> from the active consumer catalog? This action cannot be undone.
+      </p>
+
+      <div class="flex items-center justify-center gap-3 mt-6 pt-5 border-t border-slate-100">
+        <button type="button" id="btn-cancel-delete-service" 
+                class="flex-1 py-2.5 px-4 rounded-xl text-xs font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 transition cursor-pointer">
+          Cancel
+        </button>
+        <button type="button" id="btn-confirm-delete-service" 
+                class="flex-1 py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-rose-600 hover:bg-rose-700 shadow-sm transition active:scale-95 cursor-pointer flex items-center justify-center gap-2">
+          <span>Delete Service</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       SIGN OUT CONFIRMATION DIALOG MODAL
+       ========================================================================= -->
+  <div id="signout-confirm-modal" 
+       class="fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-md hidden items-center justify-center p-4 overflow-y-auto modal-backdrop-animate select-none">
+    <div class="bg-white rounded-3xl border border-slate-200/90 shadow-2xl max-w-md w-full p-6 sm:p-7 text-center modal-content-animate relative overflow-hidden">
+      <!-- Glow background accent -->
+      <div class="w-16 h-16 rounded-3xl bg-amber-50 border border-amber-100 text-amber-600 flex items-center justify-center mx-auto mb-4 shadow-sm">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+        </svg>
+      </div>
+
+      <h3 class="text-lg font-extrabold text-slate-900 tracking-tight">Sign Out from Admin Portal?</h3>
+      <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+        Are you sure you want to end your current session? All active access tokens and session credentials will be cleared from this browser.
+      </p>
+
+      <div class="flex items-center justify-center gap-3 mt-6 pt-5 border-t border-slate-100">
+        <button type="button" id="btn-cancel-signout" 
+                class="flex-1 py-2.5 px-4 rounded-xl text-xs font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 transition cursor-pointer">
+          Cancel
+        </button>
+        <button type="button" id="btn-confirm-signout" 
+                class="flex-1 py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-rose-600 hover:bg-rose-700 shadow-sm transition active:scale-95 cursor-pointer flex items-center justify-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          </svg>
+          <span>Yes, Sign Out</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       LIVE PUSH NOTIFICATION TOAST BANNER (Simulates Push to Mobile Client)
+       ========================================================================= -->
+  <div id="notification-toast-container" 
+       class="fixed bottom-5 right-5 z-50 max-w-sm w-full bg-slate-900/95 backdrop-blur-md text-white rounded-2xl shadow-2xl p-4 border border-slate-700/80 hidden items-start gap-3 select-none">
+    
+    <div class="w-10 h-10 rounded-xl bg-brand-indigo/30 text-indigo-400 flex items-center justify-center flex-shrink-0 border border-brand-indigo/40 mt-0.5 shadow-sm">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+      </svg>
+    </div>
+
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center justify-between gap-1">
+        <span class="text-[10px] font-mono-code font-extrabold text-amber-400 uppercase tracking-wider flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          Simulated App Push
+        </span>
+        <button id="toast-close-btn" class="text-slate-400 hover:text-white p-0.5 rounded transition cursor-pointer">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+      </div>
+
+      <h5 id="toast-title" class="text-xs font-bold text-white mt-1 leading-snug">Booking Confirmed! 🚀</h5>
+      <p id="toast-message" class="text-[11px] text-slate-300 mt-1 leading-relaxed line-clamp-3 font-sans">
+        Push message dispatched to customer mobile device.
+      </p>
+
+      <div class="flex items-center justify-between text-[10px] text-slate-400 mt-2.5 pt-2 border-t border-slate-800">
+        <span id="toast-target" class="truncate">Push target: Mobile Client</span>
+        <span class="text-emerald-400 font-bold flex items-center gap-1">
+          Delivered
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modular Scripts Organized in Separate Folders -->
+  <script src="js/data/mockData.js"></script>
+  <script src="dashboard/components/uiComponents.js"></script>
+  <script src="login/login.js"></script>
+  <script src="dashboard/dashboard.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

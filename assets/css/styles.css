@@ -1,0 +1,326 @@
+/* ==========================================================================
+   ServicePro Admin Portal - Ultra-Premium SaaS Stylesheet
+   Modern, Clean Light SaaS Dashboard Theme with Glassmorphism & Micro-Elevation
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --color-primary: #4F46E5;
+  --color-primary-dark: #4338CA;
+  --color-royal-blue: #1E56A0;
+  --color-brand-orange: #FF7A00;
+  --color-canvas-bg: #F8FAFC;
+  --color-border: #E2E8F0;
+  --color-border-subtle: #F1F5F9;
+  --sidebar-width: 270px;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-canvas-bg);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.03) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(30, 86, 160, 0.03) 0px, transparent 50%);
+  background-attachment: fixed;
+  color: #0F172A;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --------------------------------------------------------------------------
+   Custom Scrollbar Styling
+   -------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #E2E8F0;
+  border-radius: 4px;
+}
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: #CBD5E1;
+}
+
+/* --------------------------------------------------------------------------
+   Ultra-Premium Card & Surface Elevation
+   -------------------------------------------------------------------------- */
+.saas-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 20px;
+  box-shadow: 
+    0 1px 2px 0 rgba(0, 0, 0, 0.02),
+    0 4px 16px -2px rgba(15, 23, 42, 0.03),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.95);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.saas-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.04),
+    0 14px 28px -4px rgba(15, 23, 42, 0.07),
+    inset 0 1px 0 0 rgba(255, 255, 255, 1);
+  border-color: #CBD5E1;
+}
+
+/* Amber Glowing KPI Card */
+.kpi-amber-highlight {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFFBEB 100%);
+  border: 1px solid rgba(251, 191, 36, 0.6);
+  box-shadow: 
+    0 2px 4px 0 rgba(245, 158, 11, 0.04),
+    0 8px 24px -2px rgba(245, 158, 11, 0.08),
+    inset 0 1px 0 0 rgba(255, 255, 255, 1);
+}
+
+.kpi-amber-highlight:hover {
+  border-color: #F59E0B;
+  box-shadow: 
+    0 4px 8px 0 rgba(245, 158, 11, 0.06),
+    0 16px 32px -4px rgba(245, 158, 11, 0.12);
+}
+
+/* --------------------------------------------------------------------------
+   Sidebar Navigation & Active Indicator
+   -------------------------------------------------------------------------- */
+.nav-link {
+  transition: all 0.2s ease-in-out;
+  border-radius: 12px;
+  color: #64748B;
+  font-weight: 500;
+  font-size: 0.875rem; /* 14px */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  white-space: nowrap;
+  position: relative;
+}
+
+.nav-link:hover {
+  background-color: #F8FAFC;
+  color: #0F172A;
+}
+
+.nav-link.active {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.08) 0%, rgba(30, 86, 160, 0.04) 100%);
+  color: #4F46E5;
+  font-weight: 700;
+  border: 1px solid rgba(79, 70, 229, 0.15);
+  box-shadow: 0 1px 3px 0 rgba(79, 70, 229, 0.05);
+}
+
+.nav-link.active svg {
+  color: #4F46E5;
+}
+
+.nav-link.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 3.5px;
+  border-radius: 0 4px 4px 0;
+  background: linear-gradient(180deg, #4F46E5 0%, #1E56A0 100%);
+}
+
+/* --------------------------------------------------------------------------
+   Buttons & CTA Utilities
+   -------------------------------------------------------------------------- */
+.btn-primary-orange {
+  background: linear-gradient(135deg, #FF7A00 0%, #FF6600 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(255, 122, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.btn-primary-orange:hover {
+  background: linear-gradient(135deg, #E66E00 0%, #E05A00 100%);
+  box-shadow: 0 6px 20px rgba(255, 122, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-primary-orange:active {
+  transform: translateY(0);
+}
+
+.btn-indigo {
+  background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.btn-indigo:hover {
+  background: linear-gradient(135deg, #4338CA 0%, #3730A3 100%);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-indigo:active {
+  transform: translateY(0);
+}
+
+/* Filter pills active states */
+.filter-pill {
+  transition: all 0.18s ease-in-out;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.filter-pill.active {
+  background-color: #4F46E5;
+  color: #FFFFFF;
+  border-color: #4F46E5;
+  box-shadow: 0 2px 10px rgba(79, 70, 229, 0.28);
+}
+
+.filter-pill.active span.pill-badge {
+  background-color: rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+}
+
+/* Sign Out Button at bottom of sidebar */
+.btn-sidebar-signout {
+  transition: all 0.2s ease-in-out;
+  border-radius: 12px;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 0.8125rem; /* 13px */
+  border: 1px solid transparent;
+  background-color: #F8FAFC;
+}
+
+.btn-sidebar-signout:hover {
+  background-color: #FEF2F2;
+  color: #DC2626;
+  border-color: #FEE2E2;
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.08);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   Animations (Toast, Modals, Popover Dropdown)
+   -------------------------------------------------------------------------- */
+@keyframes popoverFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.popover-animate {
+  animation: popoverFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes toastSlideIn {
+  from {
+    transform: translateY(20px) scale(0.96);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes toastSlideOut {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(20px) scale(0.96);
+    opacity: 0;
+  }
+}
+
+.animate-toast-in {
+  animation: toastSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-toast-out {
+  animation: toastSlideOut 0.25s ease-in forwards;
+}
+
+@keyframes modalBackdropFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalScaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal-backdrop-animate {
+  animation: modalBackdropFade 0.2s ease-out forwards;
+}
+
+.modal-content-animate {
+  animation: modalScaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.aspect-service-card {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+/* Upload Dropzone Hover State */
+.dropzone-active {
+  border-color: #4F46E5 !important;
+  background-color: rgba(79, 70, 229, 0.04) !important;
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: 14px;
+}
+
+/* Font Monospace Utility */
+.font-mono-code {
+  font-family: var(--font-mono);
+}

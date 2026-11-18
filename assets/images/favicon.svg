@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="servicepro-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F46E5" />
+      <stop offset="100%" stop-color="#1E56A0" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="url(#servicepro-grad)" />
+  <path d="M42 46V18a4 4 0 00-4-4H26a4 4 0 00-4 4v28m20 0h4m-4 0h-8m-12 0h-4m4 0h8M28 22h2m-2 8h2m8-8h2m-2 8h2m-6 16v-8a2 2 0 012-2h2a2 2 0 012 2v8m-6 0h6" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
